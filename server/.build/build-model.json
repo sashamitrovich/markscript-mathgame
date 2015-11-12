@@ -1,0 +1,95 @@
+{
+  "databases": {
+    "todo-content": {
+      "name": "todo-content",
+      "triples": true,
+      "forests": [
+        {
+          "name": "todo-content",
+          "database": "todo-content",
+          "host": "macpro-3448.local"
+        }
+      ],
+      "schemaDatabase": "todo-schema",
+      "triggersDatabase": "todo-triggers",
+      "rangeIndices": [],
+      "geoIndices": []
+    },
+    "todo-triggers": {
+      "name": "todo-triggers",
+      "forests": [
+        {
+          "name": "todo-triggers",
+          "database": "todo-triggers",
+          "host": "macpro-3448.local"
+        }
+      ]
+    },
+    "todo-modules": {
+      "name": "todo-modules",
+      "forests": [
+        {
+          "name": "todo-modules",
+          "database": "todo-modules",
+          "host": "macpro-3448.local"
+        }
+      ]
+    },
+    "todo-schema": {
+      "name": "todo-schema",
+      "forests": [
+        {
+          "name": "todo-schema",
+          "database": "todo-schema",
+          "host": "macpro-3448.local"
+        }
+      ]
+    }
+  },
+  "servers": {
+    "todo": {
+      "name": "todo",
+      "host": "macpro-3448.local",
+      "port": 9020,
+      "group": "Default",
+      "modulesDatabase": "todo-modules",
+      "contentDatabase": "todo-content"
+    }
+  },
+  "ruleSets": [],
+  "tasks": {},
+  "alerts": {},
+  "contentDatabase": "todo-content",
+  "modulesDatabase": "todo-modules",
+  "schemaDatabase": "todo-schema",
+  "triggersDatabase": "todo-triggers",
+  "modules": {
+    "/todo/todoService": {
+      "name": "/todo/todoService",
+      "code": ""
+    }
+  },
+  "extensions": {
+    "todo-getAnswer": {
+      "name": "todo-getAnswer",
+      "code": ""
+    },
+    "todo-getRandomNumbersPair": {
+      "name": "todo-getRandomNumbersPair",
+      "code": ""
+    }
+  },
+  "serviceSpecs": {
+    "todo": {
+      "methods": {
+        "getAnswer": {
+          "method": 0
+        },
+        "getRandomNumbersPair": {
+          "method": 0
+        }
+      },
+      "events": {}
+    }
+  }
+}

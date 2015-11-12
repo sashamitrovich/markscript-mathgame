@@ -1,0 +1,64 @@
+<link href="../bower_components/paper-card/paper-card.html" rel="import">
+<link href="../bower_components/paper-button/paper-button.html" rel="import">
+<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+
+
+<dom-module id="simple-element">
+<style>
+/* CSS rules for your element */ body {
+  background-color: var(--paper-grey-50);
+}
+#cards {
+  @apply(--layout-vertical);
+  @apply(--center-justified);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+paper-card {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+input[is=iron-input] {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+input, button {
+  font-size: 20px;
+  padding: 0.2em;
+}
+</style>
+<template>
+
+  <uservices-method service-name="todo" method-name="getRandomNumbersPair" args="{{trigger}}" result="{{randomNumbersPair}}"></uservices-method>
+  <uservices-method service-name="todo" method-name="getAnswer" args="{{guess}}" result="{{answer}}"></uservices-method>
+
+  <div id="cards">
+    <paper-card heading="Hello, let's play a game!">
+      <div class="card-content">
+        <paper-item>How much is&nbsp;<span>{{randomNumbersPair.first}}</span>+<span>{{randomNumbersPair.second}}</span>?</paper-item>
+        <paper-input focused="{{focus}}" id="edit" value="{{value}}" placeholder="Enter the value"></paper-input>
+      </div>
+      <div class="card-actions">
+        <paper-fab disabled="{{hasAnswered}}" mini icon="done" title="submit" on-click="submitAnswer"></paper-fab>
+
+        <paper-fab disabled="{{!hasAnswered}}" mini icon="refresh" title="again" on-click="playAgain"></paper-fab>
+      
+        <paper-item hidden="{{!response}}">{{response}}</paper-item>
+      </div>
+    </div>
+  </paper-card>
+</template>
+
+</dom-module>
+
+<script type="text/javascript" src="simple-element.js"></script>

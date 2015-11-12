@@ -1,0 +1,16 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<script>
+  //register new element proto-element
+  Polymer({
+    is: "todo-element",
+    created: function() {
+    console.log(this.localName + '#' + this.id + ' was created');
+    },
+    // add a callback to it's prototype
+    ready: function() {
+      console.log("todo-element ready!")
+    }
+  });
+
+</script>
