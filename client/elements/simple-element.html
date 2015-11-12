@@ -11,53 +11,54 @@
 
 
 <dom-module id="simple-element">
-<style>
-/* CSS rules for your element */ body {
-  background-color: var(--paper-grey-50);
-}
-#cards {
-  @apply(--layout-vertical);
-  @apply(--center-justified);
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-paper-card {
-  width: 100%;
-  margin-bottom: 16px;
-}
+  <style>
 
-input[is=iron-input] {
-  width: 100%;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-input, button {
-  font-size: 20px;
-  padding: 0.2em;
-}
-</style>
-<template>
+    #cards {
+      @apply(--layout-vertical);
+      @apply(--center-justified);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: 'Roboto', 'Noto', sans-serif;
+    }
+    paper-card {
+      width: 100%;
+      margin-bottom: 16px;
+    }
 
-  <uservices-method service-name="todo" method-name="getRandomNumbersPair" args="{{trigger}}" result="{{randomNumbersPair}}"></uservices-method>
-  <uservices-method service-name="todo" method-name="getAnswer" args="{{guess}}" result="{{answer}}"></uservices-method>
+    input[is=iron-input] {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    input, button {
+      font-size: 20px;
+      padding: 0.2em;
+    }
 
-  <div id="cards">
-    <paper-card heading="Hello, let's play a game!">
-      <div class="card-content">
-        <paper-item>How much is&nbsp;<span>{{randomNumbersPair.first}}</span>+<span>{{randomNumbersPair.second}}</span>?</paper-item>
-        <paper-input focused="{{focus}}" id="edit" value="{{value}}" placeholder="Enter the value"></paper-input>
+    .pink {
+      --paper-card-header-color: var(--paper-pink-500);
+    }
+  </style>
+  <template>
+
+    <uservices-method service-name="todo" method-name="getRandomNumbersPair" args="{{trigger}}" result="{{randomNumbersPair}}"></uservices-method>
+    <uservices-method service-name="todo" method-name="getAnswer" args="{{guess}}" result="{{answer}}"></uservices-method>
+
+    <div id="cards">
+      <paper-card class="pink" heading="Hello, let's play a game!">
+        <div class="card-content">
+          <div>How much is&nbsp;<span>{{randomNumbersPair.first}}</span>+<span>{{randomNumbersPair.second}}</span>?</div>
+          <paper-input id="edit" disabled="{{hasAnswered}}" value="{{value}}" placeholder="Enter the value" on-keypress="keyPressed"></paper-input>
+          <div hidden="{{!response}}">{{response}}</div>
+        </div>
+        <div class="card-actions">
+          <paper-fab disabled="{{hasAnswered}}" mini icon="done" title="submit" on-click="submitAnswer"></paper-fab>
+          <paper-fab id="replay" disabled="{{!hasAnswered}}" mini icon="refresh" title="again" on-click="playAgain"></paper-fab>
+        </div>
       </div>
-      <div class="card-actions">
-        <paper-fab disabled="{{hasAnswered}}" mini icon="done" title="submit" on-click="submitAnswer"></paper-fab>
-
-        <paper-fab disabled="{{!hasAnswered}}" mini icon="refresh" title="again" on-click="playAgain"></paper-fab>
-      
-        <paper-item hidden="{{!response}}">{{response}}</paper-item>
-      </div>
-    </div>
-  </paper-card>
-</template>
+    </paper-card>
+  </template>
 
 </dom-module>
 
