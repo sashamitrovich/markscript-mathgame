@@ -11,12 +11,13 @@ declare module Todo {
   }
 
   interface Guess {
+    userName: string;
     guessedValue: number;
     generatedNumberPair: NumberPair;
   }
 
   interface TodoService {
-    getAnswer(guess:Guess): Promise<Answer>
+    checkAnswer(guess:Guess): Promise<Answer>
     getRandomNumbersPair(): Promise<NumberPair>
   }
 }

@@ -70,8 +70,8 @@
     }
   },
   "extensions": {
-    "todo-getAnswer": {
-      "name": "todo-getAnswer",
+    "todo-checkAnswer": {
+      "name": "todo-checkAnswer",
       "code": ""
     },
     "todo-getRandomNumbersPair": {
@@ -82,8 +82,8 @@
   "serviceSpecs": {
     "todo": {
       "methods": {
-        "getAnswer": {
-          "method": 0
+        "checkAnswer": {
+          "method": 1
         },
         "getRandomNumbersPair": {
           "method": 0

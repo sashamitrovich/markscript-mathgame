@@ -8,10 +8,15 @@ Polymer({
       type: Boolean,
       value: false
     },
+    hasEnteredName: {
+      type: Boolean,
+      value: false
+    },
     response: String
   },
   submitAnswer: function () {
     var guess = new Object();
+    guess.userName=this.name;
     guess.guessedValue=this.value;
     guess.generatedNumberPair=this.randomNumbersPair;
     this.hasAnswered = true;
@@ -29,15 +34,24 @@ Polymer({
   ready: function () {
     this.notifyPath('trigger',[]);
     this.response=null;
-    document.getElementById("edit").$.input.focus();
+    document.getElementById("editName").$.input.focus();
   },
 
   // check if the user pressed the 'enter' to submit their answer
   keyPressed: function(e) {
+    console.log("keyPressed");
     if (    0 === e.charCode
       && !this.hasAnswered) {
         this.submitAnswer(e);
       }
+    },
+    keyPressedName: function(e) {
+      console.log("keyPressedName");
+      if (   0 === e.charCode
+        && !this.hasEnteredName) {
+          this.hasEnteredName=true;
+          document.getElementById("edit").$.input.focus();
+        }
     },
     observers: [
       'onAnswer(answer)'
