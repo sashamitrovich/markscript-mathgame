@@ -14,6 +14,8 @@ Polymer({
     },
     response: String
   },
+
+  // submits the Answer to the backend (call checkAnswer)
   submitAnswer: function () {
     var guess = new Object();
     guess.userName=this.name;
@@ -24,6 +26,7 @@ Polymer({
     //supplying an array of values (in case you have multiple arguments in the uservice method)
     this.notifyPath('guess', [guess]);
   },
+  // triggers the generation of a new NumberPair (calls generatedNumberPair)
   playAgain: function() {
     this.notifyPath('trigger',[]);
     this.hasAnswered=false;
@@ -31,6 +34,8 @@ Polymer({
     this.value=null
     document.getElementById("edit").$.input.focus();
   },
+
+  // execute when the whole DOM is ready
   ready: function () {
     this.notifyPath('trigger',[]);
     this.response=null;
@@ -45,6 +50,8 @@ Polymer({
         this.submitAnswer(e);
       }
     },
+
+    // checks if the user pressed 'enter' to submit their name
     keyPressedName: function(e) {
       console.log("keyPressedName");
       if (   0 === e.charCode
@@ -52,20 +59,23 @@ Polymer({
           this.hasEnteredName=true;
           document.getElementById("edit").$.input.focus();
         }
-    },
-    observers: [
-      'onAnswer(answer)'
-    ],
-    onAnswer: function () {
-      var response="";
-      response=+this.answer.value+" is the correct answer"
+      },
+      observers: [
+        'onAnswer(answer)'
+      ],
 
-      if (this.answer.isCorrect) {
-        response="Congrats, "+response+"!";
+      // triggers when the answer has been checked (checkAnswer) and response has been received
+      // renders a response to the user based on their answer
+      onAnswer: function () {
+        var response="";
+        response=+this.answer.value+" is the correct answer"
+
+        if (this.answer.isCorrect) {
+          response="Congrats, "+response+"!";
+        }
+        else {
+          response="Sorry, "+response+" :(";
+        }
+        this.notifyPath('response', [response]);
       }
-      else {
-        response="Sorry, "+response+" :(";
-      }
-      this.notifyPath('response', [response]);
-    }
-  });
+    });

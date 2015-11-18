@@ -2,6 +2,7 @@ import {TodoDatabase} from './build/databaseModel'
 import {basicBuildPlugin} from 'markscript-basic-build'
 import {uServicesPlugin} from 'markscript-uservices-build'
 import {Runtime} from 'markscript-koa'
+import {test} from './test/test'
 
 const COMMON = {
   "appName": "todo",
@@ -44,7 +45,13 @@ export const build: MarkScript.Build = {
       execute: function(buildModel: MarkScript.BuildModel, buildConfig: MarkScript.BuildConfig, server: Runtime) {
         return new Promise(function(resolve, reject){})
       },
-      description: 'Run an instance of the server for integration testing'
+      description: 'Run an instance of the KOA server'
+    },
+    test: {
+      execute: function(buildModel: MarkScript.BuildModel, buildConfig: MarkScript.BuildConfig, runtime: Runtime) {
+        return test(runtime)
+      },
+      description: 'Server test to ensure everything works as expected'
     }
   }
 }
