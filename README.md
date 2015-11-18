@@ -1,5 +1,5 @@
-# markscript-mathgame
-Example application using markscript and polymer
+# A simple mathgame
+Example application using MarkLogic DB, markscript and polymer
 
 ```
 cd server
