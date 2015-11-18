@@ -1,86 +1,86 @@
 {
   "databases": {
-    "todo-content": {
-      "name": "todo-content",
+    "mathgame-content": {
+      "name": "mathgame-content",
       "triples": true,
       "forests": [
         {
-          "name": "todo-content",
-          "database": "todo-content",
+          "name": "mathgame-content",
+          "database": "mathgame-content",
           "host": "macpro-3448.local"
         }
       ],
-      "schemaDatabase": "todo-schema",
-      "triggersDatabase": "todo-triggers",
+      "schemaDatabase": "mathgame-schema",
+      "triggersDatabase": "mathgame-triggers",
       "rangeIndices": [],
       "geoIndices": []
     },
-    "todo-triggers": {
-      "name": "todo-triggers",
+    "mathgame-triggers": {
+      "name": "mathgame-triggers",
       "forests": [
         {
-          "name": "todo-triggers",
-          "database": "todo-triggers",
+          "name": "mathgame-triggers",
+          "database": "mathgame-triggers",
           "host": "macpro-3448.local"
         }
       ]
     },
-    "todo-modules": {
-      "name": "todo-modules",
+    "mathgame-modules": {
+      "name": "mathgame-modules",
       "forests": [
         {
-          "name": "todo-modules",
-          "database": "todo-modules",
+          "name": "mathgame-modules",
+          "database": "mathgame-modules",
           "host": "macpro-3448.local"
         }
       ]
     },
-    "todo-schema": {
-      "name": "todo-schema",
+    "mathgame-schema": {
+      "name": "mathgame-schema",
       "forests": [
         {
-          "name": "todo-schema",
-          "database": "todo-schema",
+          "name": "mathgame-schema",
+          "database": "mathgame-schema",
           "host": "macpro-3448.local"
         }
       ]
     }
   },
   "servers": {
-    "todo": {
-      "name": "todo",
+    "mathgame": {
+      "name": "mathgame",
       "host": "macpro-3448.local",
       "port": 9020,
       "group": "Default",
-      "modulesDatabase": "todo-modules",
-      "contentDatabase": "todo-content"
+      "modulesDatabase": "mathgame-modules",
+      "contentDatabase": "mathgame-content"
     }
   },
   "ruleSets": [],
   "tasks": {},
   "alerts": {},
-  "contentDatabase": "todo-content",
-  "modulesDatabase": "todo-modules",
-  "schemaDatabase": "todo-schema",
-  "triggersDatabase": "todo-triggers",
+  "contentDatabase": "mathgame-content",
+  "modulesDatabase": "mathgame-modules",
+  "schemaDatabase": "mathgame-schema",
+  "triggersDatabase": "mathgame-triggers",
   "modules": {
-    "/todo/todoService": {
-      "name": "/todo/todoService",
+    "/mathgame/mathService": {
+      "name": "/mathgame/mathService",
       "code": ""
     }
   },
   "extensions": {
-    "todo-checkAnswer": {
-      "name": "todo-checkAnswer",
+    "mathgame-checkAnswer": {
+      "name": "mathgame-checkAnswer",
       "code": ""
     },
-    "todo-getRandomNumbersPair": {
-      "name": "todo-getRandomNumbersPair",
+    "mathgame-getRandomNumbersPair": {
+      "name": "mathgame-getRandomNumbersPair",
       "code": ""
     }
   },
   "serviceSpecs": {
-    "todo": {
+    "mathgame": {
       "methods": {
         "checkAnswer": {
           "method": 1

@@ -2,7 +2,7 @@ import {mlDeploy, contentDatabase, triggersDatabase, modulesDatabase, schemaData
 import {variable, prefix, rule} from 'speckle'
 
 @mlDeploy()
-export class TodoDatabase {
+export class MathGameDatabase {
   name: string
   host: string
   port: number

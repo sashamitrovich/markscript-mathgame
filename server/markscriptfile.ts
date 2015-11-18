@@ -1,11 +1,11 @@
-import {TodoDatabase} from './build/databaseModel'
+import {MathGameDatabase} from './build/databaseModel'
 import {basicBuildPlugin} from 'markscript-basic-build'
 import {uServicesPlugin} from 'markscript-uservices-build'
 import {Runtime} from 'markscript-koa'
 import {test} from './test/test'
 
 const COMMON = {
-  "appName": "todo",
+  "appName": "mathgame",
   "ml": {
     "host": "macpro-3448.local",
     "user": "admin",
@@ -29,7 +29,7 @@ export const build: MarkScript.Build = {
       password: COMMON.ml.password,
     },
     database: {
-      modelObject: new TodoDatabase(COMMON.appName, COMMON.ml.port, COMMON.ml.host)
+      modelObject: new MathGameDatabase(COMMON.appName, COMMON.ml.port, COMMON.ml.host)
     },
     fileServerPath: '../client',
     middle: {

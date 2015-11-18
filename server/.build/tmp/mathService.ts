@@ -1,20 +1,18 @@
 import {mlService, mlMethod, resolve, resolveIterator, METHOD} from 'markscript-uservices'
 
-@mlService('todo')
-export class TodoService implements Todo.TodoService {
+
+export class MathService implements MathGame.MathService {
 
   // Calculates the correct result and checks if the user answered correctly
-  @mlMethod({
-    method: METHOD.PUT
-  })
-  checkAnswer(guess: Todo.Guess ) : Promise<Todo.Answer> {
+  
+  checkAnswer(guess: MathGame.Guess ) : Promise<MathGame.Answer> {
 
 
     // Calculate the correct value
     let correctValue = guess.generatedNumberPair.first+guess.generatedNumberPair.second;
 
     // Instantiate an Todo.Answer object
-    let answer: Todo.Answer = {
+    let answer: MathGame.Answer = {
       value: correctValue,
       isCorrect: correctValue==guess.guessedValue
     }
@@ -28,9 +26,9 @@ export class TodoService implements Todo.TodoService {
   }
 
   // Generates and returns 2 random numbers
-  @mlMethod()
-  getRandomNumbersPair() : Promise<Todo.NumberPair> {
-    let numberPair: Todo.NumberPair = {
+  
+  getRandomNumbersPair() : Promise<MathGame.NumberPair> {
+    let numberPair: MathGame.NumberPair = {
       first: Math.floor((Math.random() * 50)),
       second: Math.floor((Math.random() * 50))
     }

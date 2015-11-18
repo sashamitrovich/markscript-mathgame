@@ -1,4 +1,4 @@
-declare module Todo {
+declare module MathGame {
   // Put your model definitions and service definitions here
   interface Answer {
     value: number;
@@ -16,7 +16,7 @@ declare module Todo {
     generatedNumberPair: NumberPair;
   }
 
-  interface TodoService {
+  interface MathService {
     checkAnswer(guess:Guess): Promise<Answer>
     getRandomNumbersPair(): Promise<NumberPair>
   }

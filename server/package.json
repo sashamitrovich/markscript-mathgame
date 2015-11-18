@@ -1,5 +1,5 @@
 {
-    "name": "todo",
+    "name": "mathgame",
     "version": "0.0.0",
     "dependencies": {
         "marklogic-typescript-definitions": "^0.3.1",
