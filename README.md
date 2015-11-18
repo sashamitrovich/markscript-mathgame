@@ -18,4 +18,4 @@ Run the KOA server:
 Go to:
 http://localhost:8080
 
-May the Force be with you!
+> May the Force be with you!
