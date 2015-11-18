@@ -11,7 +11,8 @@ Test:
 
 `markscript test`
 
-Run KOA:
+Run the KOA server:
+
 `markscript run`
 
 Go to:
